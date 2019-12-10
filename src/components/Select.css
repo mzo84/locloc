@@ -1,0 +1,42 @@
+.SelectContainer {
+    --webkit-appearance: none;
+    font-family: 'Andale Mono', monospace;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.SelectContainer-input {
+    --webkit-appearance: none;
+    font-family: 'Andale Mono', monospace;
+    font-size: 15px;
+    background-color: #fefefe;
+    border-radius: 8px;
+    border: 1px solid darkgrey;
+}
+
+.SelectContainer-input:active {
+    outline: none;
+    background-color: lightgray;
+    border: 1px solid white;
+}
+
+.SelectContainer-input:focus {
+    outline: none;
+}
+
+.FormWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.EnvironmentWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.EnvironmentWrapper fieldset {
+    border: none;
+    padding: 0;
+    margin-right: 5px;
+}
