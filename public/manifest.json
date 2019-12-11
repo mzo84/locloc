@@ -9,18 +9,17 @@
     "16": "logo192.png"
   },
   "short_name": "LocLoc",
-  "permissions": ["activeTab", "management", "debugger"],
+  "permissions": ["activeTab"],
   "browser_action": {
     "default_icon": "logo192.png",
     "default_title": "locloc"
   },
-  "background": {
-    "scripts": ["background.js"]
-  },
   "content_scripts": [
     {
       "matches": ["*://*.apple.com/*"],
-      "css": ["app.css"]
+      "css": ["static/css/main.css"],
+      "js": ["static/js/main.js"],
+      "run_at": "document_idle"
     }
   ]
 }

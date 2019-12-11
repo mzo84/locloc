@@ -2,16 +2,20 @@
     --webkit-appearance: none;
     font-family: 'Andale Mono', monospace;
     font-size: 15px;
-    margin-right: 10px;
+    direction: ltr!important;
 }
 
 .SelectContainer-input {
     --webkit-appearance: none;
     font-family: 'Andale Mono', monospace;
     font-size: 15px;
-    background-color: #fefefe;
     border-radius: 8px;
     border: 1px solid darkgrey;
+    text-align: center!important;
+    padding: 2px 0!important;
+    margin-top: 5px!important;
+    background-color: whitesmoke!important;
+    direction: ltr!important;
 }
 
 .SelectContainer-input:active {
@@ -26,17 +30,26 @@
 
 .FormWrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: space-between;
 }
 
 .EnvironmentWrapper {
     display: flex;
     flex-direction: row;
+    width: 140px;
+    flex-wrap: wrap;
+    margin: 0 0 10px 0;
 }
 
 .EnvironmentWrapper fieldset {
     border: none;
     padding: 0;
     margin-right: 5px;
+}
+
+.SelectWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
 }

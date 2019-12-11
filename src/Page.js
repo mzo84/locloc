@@ -3,14 +3,14 @@ class Page {
         this.body = window.document.documentElement.innerHTML;
         this.url = window.location.href;
         this.host = window.location.host;
-        this.georegex = /(?:[a-z]{2}\/|[a-z]{2}-[a-z]{2}\/)/i;
+        this.georegex = /(?:\/[a-z]{2}\/|[a-z]{2}-[a-z]{2}\/)/i;
         this.versionregex = /(([a-z]){1,2})(?:\/built)/ig;
         this.sourcesregex = /(:?\/v\/|\/mideast\/)(.*)(:?\/built)/gi;
     }
 
     // "ae"
     getGeo = function() {
-        return this.url.match(this.georegex) !== null ? this.url.match(this.georegex)[0].replace("/","") : "us";
+        return this.url.match(this.georegex) !== null ? this.url.match(this.georegex)[0].replace(/\//g,"") : "us";
     }
 
     getSources = function() {
@@ -33,7 +33,7 @@ class Page {
             return 0;
         })
 
-        return versions;
+        return sortedVersions;
     }
 
 

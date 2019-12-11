@@ -5,8 +5,9 @@ function Version(props) {
 
     function handleClick(e) {
         e.preventDefault();
-        var path = "svn co " + e.target.title.replace("/","") + " --depth infinity";
-        navigator.clipboard.writeText(path);
+        var path = e.target.title.replace("/","").replace(/\/built/g,'');
+        // navigator.clipboard.writeText(path); - does not work in a chrome content script
+        window.alert(path);
     }
 
     const versions = props.versions.map((version, index) =>

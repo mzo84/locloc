@@ -1,4 +1,3 @@
-import { thisExpression, throwStatement } from "@babel/types";
 import Page from './Page';
 
 class Tabs {
@@ -50,13 +49,14 @@ class Tabs {
             "korea" : ["kr"],
             "me" : ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
             "russia" : ["ru"],
-            "sea" : ["sg", "vt", "th", "my"],
+            "sea" : ["sg", "vn", "th", "my"],
             "turkey": ["tr"],
             "us": ["us"],
         }
         this.maximumTabs = 4; // maximum number of tabs to open without requiring a confirm dialog.
         this.page = new Page();
-        this.hostTyperegex = /(ic|webedit)/gi
+        this.hostTyperegex = /(www|ictrunk)/gi;
+        this.georegex = /(?:[a-z]{2}\/|[a-z]{2}-[a-z]{2}\/)/i;
     }
 
     // www, icxx, www-stage-view
@@ -85,7 +85,7 @@ class Tabs {
     loopEnvironments = function (geos, host, path, environments) {
         for (var i = 0; i < environments.length; i++) {
             if (environments[i] === "local") {
-                host = "http://" + host + ".apple.com/";
+                host = "http://" + host + "-local.apple.com/";
             } else if (environments[i] === "stage") {
                 host = "https://www-stage-view.apple.com/";
             } else if (environments[i] === "live") {
@@ -99,8 +99,10 @@ class Tabs {
     }
 
     loopGeos = function (host, geos, path) {
+        var url = "";
         for (var i = 0; i < geos.length; i++) {
-            window.open(host + geos[i] + path);
+            url = (geos[i] === "us") ? (host + path) : (host + geos[i] + path);
+            window.open(url);
         }
     }
 
@@ -119,7 +121,6 @@ class Tabs {
         var host = this.getHost();
         var path = this.getPath();
         var selectedEnvironments = this.getEnvironments(environments);
-        var geos = this.typeSheet[option];
         var selected = this.typeSheet[option];
         if (selected.length >= 1) {
             this.openTabs(selected, host, path, selectedEnvironments);
@@ -149,13 +150,13 @@ class Tabs {
         var sourceboxRegion = this.getRegionFromGeo(geo);
         var host = this.getHost();
         host = host.replace("-local","");
-        var isABranch = host.match(this.hostTyperegex);
-        isABranch = (isABranch === null) ? false : true;
+        var isTrunk = host.match(this.hostTyperegex);
+        isTrunk = (isTrunk === null) ? false : true;
 
-        if(isABranch) {
-            sourceboxUrl += sourceboxRegion + "/branches/" + host + "/" + geo + "/";
-        } else {
+        if(isTrunk) {
             sourceboxUrl += sourceboxRegion + "/trunk/" + geo + "/";
+        } else {
+            sourceboxUrl += sourceboxRegion + "/branches/" + host + "/" + geo + "/";
         }
 
         window.open(sourceboxUrl);

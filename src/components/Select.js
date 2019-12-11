@@ -1,6 +1,5 @@
 import React from 'react';
 import Tabs from '../Tabs'
-import Page from '../Page'
 import './Select.css';
 import Checkbox from './Checkbox';
 
