@@ -4,13 +4,13 @@
   position: fixed;
   z-index: 9999;
   bottom: 0;
-  left: 0;
-  right: auto;
+  right: 0;
+  left: auto;
   padding: 10px;
   background-color: #ededed;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   direction: ltr!important;
   text-align: left!important;
   flex-direction: column;
@@ -21,3 +21,34 @@
     display: none
   }
 }
+
+.FilterContainer {
+  transition: slide 1s linear ;
+}
+
+.FilterContainer.visible form {
+  display: block!important;
+}
+
+.FilterContainer.hidden form {
+  display: none!important;
+}
+
+.FilterContainer.visible .toggleForm {
+  transform: rotate(90deg);
+}
+
+.FilterContainer.hidden .toggleForm {
+  transform: rotate(0deg);
+}
+
+.FilterContainer .toggleForm {
+  transform: rotate(0deg);
+  transition: transform .2s linear;
+}
+
+.FilterContainer .toggleForm:hover{
+  transform: rotate(90deg);
+  transition: transform .2s linear;
+}
+

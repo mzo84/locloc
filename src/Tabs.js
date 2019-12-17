@@ -7,22 +7,10 @@ class Tabs {
             't2': ['sa', 'sa-ar'],
             't3': ['bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
             'all': ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
-            'ae': ['ae'],
-            'ae-ar': ['ae-ar'],
-            'sa': ['sa'],
-            'sa-ar': ['sa-ar'],
-            'bh': ['bh'],
-            'bh-ar': ['bh-ar'],
-            'eg': ['eg'],
-            'eg-ar': ['eg-ar'],
-            'jo': ['jo'],
-            'jo-ar': ['jo-ar'],
-            'kw': ['kw'],
-            'kw-ar': ['kw-ar'],
-            'om': ['om'],
-            'om-ar': ['om-ar'],
-            'qa': ['qa'],
-            'qa-ar': ['qa-ar'],
+            'english': ['ae', 'sa', 'bh', 'eg', 'jo', 'kw', 'om', 'qa'],
+            'arabic': ['ae-ar', 'sa-ar', 'bh-ar', 'eg-ar', 'jo-ar', 'kw-ar', 'om-ar', 'qa-ar'],
+            'ae' : ['ae'],
+            'ae-ar' : ['ae-ar'],
             "alac" : [ "br", "cl", "co", "la", "lae", "mx"],
             "anz" : ["au", "nz"],
             "canada": ["ca"],
@@ -33,7 +21,7 @@ class Tabs {
             "korea" : ["kr"],
             "me" : ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
             "russia" : ["ru"],
-            "sea" : ["sg", "vt", "th", "my"],
+            "sea" : ["sg", "vn", "th", "my"],
             "turkey": ["tr"],
             "us": ["us"],
             'other-geos': ['ru', 'sg', 'tr', 'kr', 'in'],
@@ -121,7 +109,7 @@ class Tabs {
         var host = this.getHost();
         var path = this.getPath();
         var selectedEnvironments = this.getEnvironments(environments);
-        var selected = this.typeSheet[option];
+        var selected = this.typeSheet[option] || [option];
         if (selected.length >= 1) {
             this.openTabs(selected, host, path, selectedEnvironments);
         } else {

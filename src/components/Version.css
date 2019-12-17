@@ -2,10 +2,9 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: flex-start;
-    width: 140px;
+    justify-content: space-between;
+    width: auto;
     flex-wrap: wrap;
-    margin-top: 5px;
 }
 
 .Version {
@@ -19,6 +18,12 @@
     align-items: center;
     margin-right: 5px;
     font-size: 13px;
+}
+
+.Versions {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
 }
 
 .Version--mideast {
@@ -38,4 +43,10 @@
 .Version:active,
 .Version:focus {
     background-color:lightgoldenrodyellow;
+}
+
+
+.toggleForm {
+    cursor: pointer;
+    font-size: 25px;
 }

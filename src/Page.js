@@ -15,25 +15,29 @@ class Page {
 
     getSources = function() {
         let allSources = this.body.match(this.sourcesregex);
-        let uniqueSources = allSources.filter((value, index, self) => {
-            return self.indexOf(value) === index;
-        });
+        if(allSources !== null) {
+            let uniqueSources = allSources.filter((value, index, self) => {
+                return self.indexOf(value) === index;
+            });
 
-        var versions = [];
-        var version = "";
-        for(var i = 0; i < uniqueSources.length; i++) {
-            this.versionregex.lastIndex = 0; // need to reset internal pointer of regex.exec or it continues on from the index set at the first loop.
-            version = this.versionregex.exec(uniqueSources[i])
-            versions.push([version[1], uniqueSources[i]]); // first index refers to the matched group of regex.exec.
+            var versions = [];
+            var version = "";
+            for(var i = 0; i < uniqueSources.length; i++) {
+                this.versionregex.lastIndex = 0; // need to reset internal pointer of regex.exec or it continues on from the index set at the first loop.
+                version = this.versionregex.exec(uniqueSources[i])
+                versions.push([version[1], uniqueSources[i]]); // first index refers to the matched group of regex.exec.
+            }
+
+            var sortedVersions = versions.sort((a,b) => {
+                if(a[1] < b[1]) { return 1 }
+                if(a[1] > b[1]) { return -1 }
+                return 0;
+            })
+
+            return sortedVersions;
+        } else {
+            return []; // no /v/ found
         }
-
-        var sortedVersions = versions.sort((a,b) => {
-            if(a[1] < b[1]) { return 1 }
-            if(a[1] > b[1]) { return -1 }
-            return 0;
-        })
-
-        return sortedVersions;
     }
 
 

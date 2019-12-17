@@ -5,18 +5,18 @@
   "version": "0",
   "description": "",
   "icons": {
-    "128": "logo192.png",
-    "16": "logo192.png"
+    "128": "logo128.png"
   },
   "short_name": "LocLoc",
   "permissions": ["activeTab"],
   "browser_action": {
-    "default_icon": "logo192.png",
+    "default_icon": "logo128.png",
     "default_title": "locloc"
   },
   "content_scripts": [
     {
       "matches": ["*://*.apple.com/*"],
+      "exclude_matches" : ["*://sourcebox.apple.com/*", "*://github.pie.apple.com/*"],
       "css": ["static/css/main.css"],
       "js": ["static/js/main.js"],
       "run_at": "document_idle"

@@ -8,14 +8,19 @@ class FilterContainer extends React.Component {
   constructor(props) {
     super(props);
     const page = new Page();
+    let thisPage = page.getGeo();
     this.state = {
       options: [
+        thisPage,
         'sourcebox',
-        'all',
+        'all geos',
+        'ae-ar',
+        'ae',
+        'english',
+        'arabic',
         't1',
         't2',
         't3',
-        'ae','ae-ar', 'sa','sa-ar', 'bh','bh-ar','eg','eg-ar','jo','jo-ar','kw','kw-ar','om','om-ar','qa','qa-ar',
         'other-geos',
         "alac",
         "anz",
@@ -32,16 +37,29 @@ class FilterContainer extends React.Component {
         "us"
       ],
       geo: page.getGeo(),
-      versions: page.getSources()
+      versions: page.getSources(),
+      visible: false, // don't show the toggle by default
     };
+
+    this.toggleForm = this.toggleForm.bind(this);
+
   }
 
+  toggleForm = function(e) {
+    this.setState((prevState) => {
+      return {
+        visible: !prevState.visible
+      }
+    })
+  }
+
+
+
   render() {
-    console.log(this.state);
     return (
-      <div className="FilterContainer">
+      <div className={'FilterContainer ' + ((this.state.visible) ? 'visible' : 'hidden')}>
         <Select options={this.state.options} />
-        <Version versions={this.state.versions} />
+        <Version versions={this.state.versions} toggleForm={this.toggleForm} />
       </div>
     )
   }

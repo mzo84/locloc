@@ -9,10 +9,10 @@ class Select extends React.Component {
         this.tabs = new Tabs();
         this.state = {
             selected : 'default',
-            local : false,
-            server: false,
-            stage: false,
-            live: false,
+            local : (window.location.hostname.match(/(-local)/ig) !== null ? true : false),
+            server: (this.tabs.getHost().match(/(webedit|ic[0-9]{2})/gi) !== null && window.location.hostname.match(/(-local)/ig) === null ? true : false),
+            stage: (this.tabs.getHost() === "www-stage-view" ? true : false),
+            live: (this.tabs.getHost() === "www" ? true : false),
             options: props.options,
         }
 
