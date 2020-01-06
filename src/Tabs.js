@@ -53,6 +53,11 @@ class Tabs {
         return host;
     }
 
+    getRealHost = function () {
+        const host = window.location.host.split(".")[0];
+        return host;
+    }
+
     // "/iphone-11/specs/"
     getPath = function () {
         return window.location.pathname.replace(this.georegex, '');

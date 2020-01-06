@@ -1,8 +1,8 @@
 import React from 'react';
 import './FilterContainer.css';
 import Version from './Version';
-import Select from './Select';
 import Page from '../Page';
+import GeoSwitcher from './GeoSwitcher';
 
 class FilterContainer extends React.Component {
   constructor(props) {
@@ -11,30 +11,28 @@ class FilterContainer extends React.Component {
     let thisPage = page.getGeo();
     this.state = {
       options: [
-        thisPage,
-        'sourcebox',
-        'all geos',
-        'ae-ar',
-        'ae',
-        'english',
-        'arabic',
-        't1',
-        't2',
-        't3',
-        'other-geos',
-        "alac",
-        "anz",
-        "canada",
-        "eu",
-        "gc",
-        "india",
-        "japan",
-        "korea",
-        "me",
-        "russia",
-        "sea",
-        "turkey",
-        "us"
+        { type: 'me', name: 'ae'},
+        { type: 'me', name: 'ae-ar'},
+        { type: 'me', name: 'bh'},
+        { type: 'me', name: 'bh-ar'},
+        { type: 'me', name: 'eg'},
+        { type: 'me', name: 'eg-ar'},
+        { type: 'me', name: 'jo'},
+        { type: 'me', name: 'jo-ar'},
+        { type: 'me', name: 'kw'},
+        { type: 'me', name: 'kw-ar'},
+        { type: 'me', name: 'om'},
+        { type: 'me', name: 'om-ar'},
+        { type: 'me', name: 'sa'},
+        { type: 'me', name: 'sa-ar'},
+        { type: 'external', name: 'ww'},
+        { type: 'external', name: 'ru'},
+        { type: 'external', name: 'tr'},
+        { type: 'external', name: 'in'},
+        { type: 'external', name: 'kr'},
+        { type: 'host', name: 'www-stage-view'},
+        { type: 'host', name: 'www'},
+        { type: 'sb', name: 'sourcebox'}
       ],
       geo: page.getGeo(),
       versions: page.getSources(),
@@ -58,7 +56,7 @@ class FilterContainer extends React.Component {
   render() {
     return (
       <div className={'FilterContainer ' + ((this.state.visible) ? 'visible' : 'hidden')}>
-        <Select options={this.state.options} />
+        <GeoSwitcher options={this.state.options} />
         <Version versions={this.state.versions} toggleForm={this.toggleForm} />
       </div>
     )

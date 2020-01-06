@@ -1,0 +1,43 @@
+:root {
+    --fontSize: 14px;
+    --itemColour: rgba(255,255,255,1);
+}
+
+.geoContainer {
+    display: none;
+}
+
+.container {
+    font-size: var(--fontSize);
+    padding: 0;
+    margin: 0!important;
+    max-width: 320px;
+}
+
+.container li {
+    display: inline-block;
+    list-style: none;
+    margin: .3rem;
+    padding: .3rem;
+    background-color: var(--itemColour);
+    border-radius: 5px;
+    border: 1px dotted lightsteelblue;
+    cursor: pointer;
+}
+
+.container li a {
+    text-decoration: none;
+    color: black!important;
+}
+
+.container li.sourcebox {
+    background-color: lightgoldenrodyellow;
+}
+
+.container li.host {
+    background-color:linen;
+}
+
+.container li.external {
+    background-color: lightcyan;
+}

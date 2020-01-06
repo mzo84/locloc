@@ -27,7 +27,7 @@ function Version(props) {
         onClick={handleClick}>{version[0]}</span>
     );
 
-    const toggleFormButton = <span className="toggleForm" onClick={props.toggleForm}>&#8693;</span>;
+    const toggleFormButton = <span className="toggleForm" onClick={props.toggleForm}>&#127757;</span>;
 
     return (
         <div className="VersionContainer">
