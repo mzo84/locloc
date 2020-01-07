@@ -39,4 +39,4 @@ function Version(props) {
     );
 }
 
-export default React.memo(Version);
+export default Version;

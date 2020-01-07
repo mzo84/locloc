@@ -1,9 +1,14 @@
+// @flow
 import React, { useState } from 'react';
 import Tabs from '../Tabs';
 import Page from '../Page';
 import styles from './GeoSwitcher.module.css';
 
-const GeoSwitcher = (props) => {
+type Props = {
+    options: Object
+}
+
+const GeoSwitcher = (props: Props) => {
     const tabs = new Tabs();
     const page = new Page();
 
