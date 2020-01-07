@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "locloc",
-  "author": "",
-  "version": "0",
+  "name": "geoloc",
+  "author": "Display versions of the current page and a geo link switcher.",
+  "version": "0.1.0",
   "description": "",
   "icons": {
     "128": "logo128.png"

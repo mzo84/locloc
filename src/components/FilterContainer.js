@@ -1,5 +1,5 @@
 import React from 'react';
-import './FilterContainer.css';
+import styles from './FilterContainer.module.css';
 import Version from './Version';
 import Page from '../Page';
 import GeoSwitcher from './GeoSwitcher';
@@ -54,7 +54,7 @@ class FilterContainer extends React.Component {
 
   render() {
     return (
-      <div className={'FilterContainer ' + ((this.state.visible) ? 'visible' : 'hidden')}>
+      <div className={styles.FilterContainer + ' ' + ((this.state.visible) ? styles.FilterContainerVisible : styles.FilterContainerHidden)}>
         <GeoSwitcher options={this.state.options} />
         <Version versions={this.state.versions} toggleForm={this.toggleForm} />
       </div>

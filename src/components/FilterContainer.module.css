@@ -10,10 +10,10 @@
   background-color: #ededed;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   direction: ltr!important;
   text-align: left!important;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -22,6 +22,10 @@
   }
 }
 
-.FilterContainer.visible > div:first-of-type {
+.FilterContainerVisible > div:first-of-type {
   display: block!important;
+}
+
+.FilterContainerHidden > div:first-of-type {
+  display: none!important;
 }

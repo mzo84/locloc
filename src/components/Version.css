@@ -1,10 +1,10 @@
 .VersionContainer {
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     width: auto;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .Version {
@@ -16,14 +16,14 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    margin-right: 5px;
     font-size: 13px;
+    margin-bottom: 5px;
 }
 
 .Versions {
     display: flex;
-    flex-direction: row;
-    margin-right: 10px;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .Version--mideast {
