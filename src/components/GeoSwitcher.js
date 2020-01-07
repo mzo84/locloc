@@ -18,7 +18,7 @@ const GeoSwitcher = (props) => {
             return <li key={option.name} onClick={sourcebox} className={styles.sourcebox}>{option.name}</li>;
         } else if(option.type === "host") {
             var geo = page.getGeo();
-            var url = `//${option.name}.apple.com/${geo}/${tabs.getPath()}`;
+            var url = `//${option.name}.apple.com/${geo}${tabs.getPath()}`;
             return <li key={option.name} className={styles.host}><a href={url} target="_blank">{option.name}</a></li>;
         }
     });
