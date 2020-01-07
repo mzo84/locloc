@@ -1,5 +1,5 @@
 :root {
-    --fontSize: 14px;
+    --fontSize: 13px;
     --itemColour: rgba(255,255,255,1);
 }
 
@@ -12,10 +12,13 @@
     padding: 0;
     margin: 0!important;
     max-width: 320px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .container li {
-    display: inline-block;
     list-style: none;
     margin: .3rem;
     padding: .3rem;
@@ -23,6 +26,8 @@
     border-radius: 5px;
     border: 1px dotted lightsteelblue;
     cursor: pointer;
+    flex: 1 1 auto;
+    text-align: center;
 }
 
 .container li a {

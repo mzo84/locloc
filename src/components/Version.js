@@ -27,7 +27,7 @@ function Version(props) {
         onClick={handleClick}>{version[0]}</span>
     );
 
-    const toggleFormButton = <span className="toggleForm" onClick={props.toggleForm}>&#127757;</span>;
+    const toggleFormButton = <span className="toggleForm" onClick={props.toggleForm} role="button" aria-label="opens geo tab opener"><span role="img" aria-label="Earth emoji">&#127757;</span></span>;
 
     return (
         <div className="VersionContainer">

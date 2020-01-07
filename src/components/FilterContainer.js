@@ -8,7 +8,6 @@ class FilterContainer extends React.Component {
   constructor(props) {
     super(props);
     const page = new Page();
-    let thisPage = page.getGeo();
     this.state = {
       options: [
         { type: 'me', name: 'ae'},
