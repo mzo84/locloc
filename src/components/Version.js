@@ -1,5 +1,6 @@
 import React from 'react';
 import './Version.css';
+import HostToggle from './HostToggle';
 
 function Version(props) {
 
@@ -34,6 +35,7 @@ function Version(props) {
             <div className="Versions">
                 {versions}
             </div>
+            <HostToggle />
             {toggleFormButton}
         </div>
     );
