@@ -22,6 +22,8 @@ class FilterContainer extends React.Component {
         { type: 'me', name: 'kw-ar'},
         { type: 'me', name: 'om'},
         { type: 'me', name: 'om-ar'},
+        { type: 'me', name: 'qa'},
+        { type: 'me', name: 'qa-ar'},
         { type: 'me', name: 'sa'},
         { type: 'me', name: 'sa-ar'},
         { type: 'external', name: 'ww'},
