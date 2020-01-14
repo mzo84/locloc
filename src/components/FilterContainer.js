@@ -30,6 +30,7 @@ class FilterContainer extends React.Component {
         { type: 'external', name: 'ru'},
         { type: 'external', name: 'tr'},
         { type: 'external', name: 'in'},
+        { type: 'external', name: 'sg'},
         { type: 'external', name: 'kr'},
         { type: 'host', name: 'www-stage-view'},
         { type: 'host', name: 'www'},
