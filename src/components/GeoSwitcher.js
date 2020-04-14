@@ -26,9 +26,9 @@ const GeoSwitcher = (props: Props) => {
         var isTrunk = pageInfo.realHost.match(tabs.hostTyperegex);
         isTrunk = (isTrunk === null) ? false : true;
         if(isTrunk) {
-            sourceboxUrl += sourceboxRegion + "/trunk/" + pageInfo.geo + "/";
+            sourceboxUrl += sourceboxRegion + "/trunk/";
         } else {
-            sourceboxUrl += sourceboxRegion + "/branches/" + pageInfo.host + "/" + pageInfo.geo + "/";
+            sourceboxUrl += sourceboxRegion + "/branches/" + pageInfo.host + "/";
         }
         window.open(sourceboxUrl);
     }
