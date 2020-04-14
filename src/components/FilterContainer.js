@@ -10,35 +10,18 @@ class FilterContainer extends React.Component {
     const page = new Page();
     this.state = {
       options: [
+        { type: 'sb', name: 'sourcebox'},
         { type: 'me', name: 'ae'},
         { type: 'me', name: 'ae-ar'},
-        { type: 'me', name: 'bh'},
-        { type: 'me', name: 'bh-ar'},
-        { type: 'me', name: 'eg'},
-        { type: 'me', name: 'eg-ar'},
-        { type: 'me', name: 'jo'},
-        { type: 'me', name: 'jo-ar'},
-        { type: 'me', name: 'kw'},
-        { type: 'me', name: 'kw-ar'},
-        { type: 'me', name: 'om'},
-        { type: 'me', name: 'om-ar'},
-        { type: 'me', name: 'qa'},
-        { type: 'me', name: 'qa-ar'},
         { type: 'me', name: 'sa'},
         { type: 'me', name: 'sa-ar'},
-        { type: 'external', name: 'ww'},
-        { type: 'external', name: 'ru'},
-        { type: 'external', name: 'tr'},
-        { type: 'external', name: 'in'},
-        { type: 'external', name: 'sg'},
-        { type: 'external', name: 'kr'},
-        { type: 'host', name: 'www-stage-view'},
+        { type: 'me', name: 'qa'},
+        { type: 'me', name: 'qa-ar'},
         { type: 'host', name: 'www'},
-        { type: 'sb', name: 'sourcebox'}
       ],
       geo: page.getGeo(),
       versions: page.getSources(),
-      visible: false, // don't show the toggle by default
+      visible: true, 
     };
 
     this.toggleForm = this.toggleForm.bind(this);
@@ -58,8 +41,8 @@ class FilterContainer extends React.Component {
   render() {
     return (
       <div className={styles.FilterContainer + ' ' + ((this.state.visible) ? styles.FilterContainerVisible : styles.FilterContainerHidden)}>
-        <GeoSwitcher options={this.state.options} />
         <Version versions={this.state.versions} toggleForm={this.toggleForm} />
+        <GeoSwitcher options={this.state.options} />
       </div>
     )
   }

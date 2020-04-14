@@ -24,7 +24,7 @@ class Tabs {
             "sea" : ["sg", "vn", "th", "my"],
             "turkey": ["tr"],
             "us": ["us"],
-            'other-geos': ['ru', 'sg', 'tr', 'kr', 'in'],
+            'other-geos': ['ru', 'sg', 'tr', 'in'],
         };
         this.regions = {
             "alac" : [ "br", "cl", "co", "la", "lae", "mx"],

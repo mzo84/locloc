@@ -4,7 +4,6 @@
 }
 
 .geoContainer {
-    display: none;
     margin-right: 10px;
 }
 
@@ -12,16 +11,16 @@
     font-size: var(--fontSize);
     padding: 0;
     margin: 0!important;
-    max-width: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+    background-color: white;
 }
 
 .container li {
     list-style: none;
-    margin: .3rem;
+    margin: 0 1px;
     padding: .3rem;
     background-color: var(--itemColour);
     border: 1px dotted black;

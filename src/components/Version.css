@@ -13,7 +13,7 @@
 
 .Version {
     display: inline-block;
-    background-color: #ffffff;
+    background-color: lightcyan ;
     border: 1px dotted #8e8e8e;
     justify-content: center;
     display: flex;
@@ -21,11 +21,11 @@
     font-size: 13px;
     padding: 5px 10px;
     transition: background .2s ease-in;
+    margin: 0 1px;
 }
 
 .Version:hover {
     border-style:  solid;
-    background-color: whitesmoke;
 }
 
 .Versions {
@@ -35,12 +35,12 @@
 }
 
 .Version--mideast {
-    background-color: rgb(241, 241, 240);
+    background-color: lightpink;
 }
 
-.Version--global {
+/* .Version--global {
     background-color: white;
-}
+} */
 
 
 .Version:hover {

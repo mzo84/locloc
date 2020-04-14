@@ -32,8 +32,8 @@ function Version(props) {
 
     return (
         <div className="VersionContainer">
-            <HostToggle />
-            {toggleFormButton}
+            {/* <HostToggle />
+            {toggleFormButton} */}
             <div className="Versions">
                 {versions}
             </div>

@@ -3,7 +3,7 @@
   position: fixed;
   z-index: 9999;
   bottom: 0;
-  left: 0;
+  right: 0;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -11,7 +11,6 @@
   direction: ltr!important;
   text-align: left!important;
   flex-direction: row;
-
   font-family: Andale Mono, Monaco, monospace!important;
 }
 
@@ -21,10 +20,10 @@
   }
 }
 
-.FilterContainerVisible > div:first-of-type {
+/* .FilterContainerVisible > div:first-of-type {
   display: block!important;
 }
 
 .FilterContainerHidden > div:first-of-type {
   display: none!important;
-}
+} */
