@@ -1,13 +1,11 @@
 .SelectContainer {
     --webkit-appearance: none;
-    font-family: 'Andale Mono', monospace;
     font-size: 15px;
     direction: ltr!important;
 }
 
 .SelectContainer-input {
     --webkit-appearance: none;
-    font-family: 'Andale Mono', monospace;
     font-size: 15px;
     border-radius: 8px;
     border: 1px solid darkgrey;

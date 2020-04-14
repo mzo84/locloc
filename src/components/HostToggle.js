@@ -19,7 +19,7 @@ const HostToggle = () => {
     }
 
     return (
-            <span role="button" aria-label="toggle host" className={styles.hostToggle}><a href={toggleUrl} target="_blank" rel="noopener noreferrer"><span role="img">&#x262F;</span></a></span>
+            <span role="button" aria-label="toggle host" className={styles.hostToggle}><a href={toggleUrl} target="_blank" rel="noopener noreferrer"><span role="button">Host</span></a></span>
     );
 }
 

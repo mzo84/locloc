@@ -1,19 +1,18 @@
 .FilterContainer {
-  font-family: 'Andale Mono', monospace;
   font-size: 14px;
   position: fixed;
   z-index: 9999;
   bottom: 0;
-  right: 0;
-  left: auto;
+  left: 0;
   padding: 10px;
-  background-color: #ededed;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   direction: ltr!important;
   text-align: left!important;
   flex-direction: row;
+
+  font-family: Andale Mono, Monaco, monospace!important;
 }
 
 @media only screen and (max-width: 1068px) {

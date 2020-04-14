@@ -1,10 +1,17 @@
 .hostToggle {
-    font-size: 23px;
-    margin-bottom: 5px;
+    font-size: 13px;
+    border: 1px dotted black;
+    padding: 5px;
+    transition: all .2s ease-in;
+    background-color: white!important;
 }
 
 .hostToggle a,
 .hostToggle a:hover {
     text-decoration: none;
     color: black;
+}
+
+.hostToggle:hover {
+    border: 1px solid black;
 }
