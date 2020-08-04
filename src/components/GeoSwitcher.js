@@ -1,14 +1,11 @@
-// @flow
 import React, { useState } from 'react';
 import Tabs from '../Tabs';
 import Page from '../Page';
 import styles from './GeoSwitcher.module.css';
 
-type Props = {
-    options: Object
-}
 
-const GeoSwitcher = (props: Props) => {
+
+const GeoSwitcher = (props) => {
     const tabs = new Tabs();
     const page = new Page();
 
@@ -16,40 +13,103 @@ const GeoSwitcher = (props: Props) => {
         geo: page.getGeo(),
         host: tabs.getHost(),
         realHost: tabs.getRealHost(),
-        path: tabs.getPath()
+        path: tabs.getPath(),
+        pathname: window.location.pathname.replace(/[a-z]{2}-[a-z]{2}\/|\/[a-z]{2}\//i, "/")
     });
+
+    const geoalt = () => {
+        // use geo to determine sourcebox folder
+        let sourceboxUrl = "https://sourcebox.apple.com/repos/applecom/";
+        var isTrunk = pageInfo.realHost.match(tabs.hostTyperegex);
+        let geoalt = getGeoAltPath();
+        isTrunk = (isTrunk === null) ? false : true;
+        if(isTrunk) {
+            sourceboxUrl += `us/trunk/us/internal/geo-alt${geoalt}`;
+        } else {
+            sourceboxUrl += `us/branches/${pageInfo.host}/us/internal/geo-alt${geoalt}`;
+        }
+        window.open(sourceboxUrl);
+    }
+
+    const getGeoAltPath = () => {
+        let path = pageInfo.pathname.match(/\/.+?\//);
+        if(path !== null) {
+            return path[0];
+        } else {
+            return "/home/";
+        }
+    }
+
+    const getRegionFromGeo = (geo) => {
+        let regions = {
+            "alac" : [ "br", "cl", "co", "la", "lae", "mx"],
+            "anz" : ["au", "nz"],
+            "canada": ["ca"],
+            "eu" : ["fr", "uk", "it", "es", "de", "nl"],
+            "gc" : ["cn", "hk", "mo", "tw"],
+            "india" : ["in"],
+            "japan" : ["jp"],
+            "korea" : ["kr"],
+            "me" : ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
+            "russia" : ["ru"],
+            "sea" : ["sg", "vn", "th", "my"],
+            "turkey": ["tr"],
+            "us": ["us"],
+        }
+
+        for(var i in regions) {
+            if(typeof regions[i] !== "undefined") {
+                for(var j = 0; j < regions[i].length; j++) {
+                    if(regions[i][j] === geo) {
+                        return i;
+                    }
+                }
+            }
+        }
+
+    }
 
     const sourcebox = () => {
         // use geo to determine sourcebox folder
-        let sourceboxUrl = "https://sourcebox.apple.com/repos/applecom/";
-        let sourceboxRegion = tabs.getRegionFromGeo(pageInfo.geo);
-        var isTrunk = pageInfo.realHost.match(tabs.hostTyperegex);
+        var sourceboxUrl = "https://sourcebox.apple.com/repos/applecom/";
+        var sourceboxRegion = getRegionFromGeo(pageInfo.geo);
+        var isTrunk = pageInfo.host.match(tabs.hostTyperegex);
         isTrunk = (isTrunk === null) ? false : true;
+
         if(isTrunk) {
-            sourceboxUrl += sourceboxRegion + "/trunk/";
+            sourceboxUrl += `${sourceboxRegion}/trunk/${pageInfo.geo}/`;
         } else {
-            sourceboxUrl += sourceboxRegion + "/branches/" + pageInfo.host + "/";
+            sourceboxUrl += `${sourceboxRegion}/branches/${pageInfo.host}/${pageInfo.geo}/`;
         }
+
         window.open(sourceboxUrl);
     }
 
     const options = props.options.map((option) => {
         if(option.type === 'me') {
-            let url = `//${pageInfo.realHost}.apple.com/${option.name}${pageInfo.path}`
+            let url = `//${pageInfo.realHost}.apple.com/${option.name}${pageInfo.pathname}`
             return <li key={option.name} className={styles.geo}><a href={url} target="_blank" rel="noopener noreferrer">{option.name}</a></li>;
-        } else if(option.type === "external") {
-            // if its an external geo then use the hosted url and not the local.
-            let url = option.name === "ww" ? `//${pageInfo.host}.apple.com/${pageInfo.path}` : `//${pageInfo.host}.apple.com/${option.name}${pageInfo.path}`;
+        } else if(option.type === "us") {
+            let url = `//${pageInfo.realHost}.apple.com${pageInfo.pathname}`
             return <li key={option.name} className={styles.external}><a href={url} target="_blank" rel="noopener noreferrer">{option.name}</a></li>;
+        } else if(option.type === 'geo-alt') {
+            return <li key={option.name} onClick={geoalt} className={styles.sourcebox}>{option.name}</li>;
         } else if(option.type === 'sb') {
             return <li key={option.name} onClick={sourcebox} className={styles.sourcebox}>{option.name}</li>;
-        } else if(option.type === "host") {
-            let url = `//${option.name}.apple.com/${pageInfo.geo}${pageInfo.path}`;
-            return <li key={option.name} className={styles.host}><a href={url} target="_blank" rel="noopener noreferrer">{option.name}</a></li>;
+        } else {
+            return <li key={option.name} className={styles.geo}><a onClick={(e) => openTiers(option.type, e)} target="_blank" rel="noopener noreferrer">{option.name}</a></li>
         }
-
-        return "";
     });
+
+    const openTiers = (tier, e) => {
+        e.preventDefault();
+        let tiers = (tier == "t2") ? ["sa","sa-ar"] : ["bh","bh-ar","eg","eg-ar","jo","jo-ar","kw","kw-ar","om","om-ar","qa","qa-ar"];
+        for(let i = 0; i < tiers.length; i++) {
+            let url = `//${pageInfo.realHost}.apple.com/${tiers[i]}${pageInfo.pathname}`
+            window.open(url);
+        }
+    }
+
 
     return (
         <div className={styles.geoContainer}>

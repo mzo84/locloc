@@ -10,14 +10,13 @@ class FilterContainer extends React.Component {
     const page = new Page();
     this.state = {
       options: [
-        { type: 'sb', name: 'sourcebox'},
+        { type: 'geo-alt', name: 'geo-alt'},
+        { type: 'sb', name: 'SB'},
         { type: 'me', name: 'ae'},
         { type: 'me', name: 'ae-ar'},
-        { type: 'me', name: 'sa'},
-        { type: 'me', name: 'sa-ar'},
-        { type: 'me', name: 'qa'},
-        { type: 'me', name: 'qa-ar'},
-        { type: 'host', name: 'www'},
+        { type: 't2', name: 'T2'},
+        { type: 't3', name: 'T3'},
+        { type: 'us', name: 'US'},
       ],
       geo: page.getGeo(),
       versions: page.getSources(),
