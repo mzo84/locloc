@@ -44,3 +44,7 @@
 .container li.external {
     background-color: lightcyan;
 }
+
+.container li.rand {
+    background-color: cornsilk;
+}

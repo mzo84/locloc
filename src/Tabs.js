@@ -60,7 +60,7 @@ class Tabs {
 
     // "/iphone-11/specs/"
     getPath = function () {
-        return window.location.pathname.replace(this.georegex, '');
+        return window.location.pathname.replace(this.georegex, '') + window.location.hash + window.location.search;
     }
 
     openTabs = function (geos, host, path, environments) {
