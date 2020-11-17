@@ -126,7 +126,16 @@ const GeoSwitcher = (props) => {
 
     const openTiers = (tier, e) => {
         e.preventDefault();
-        let tiers = (tier == "t2") ? ["sa","sa-ar"] : ["bh","bh-ar","eg","eg-ar","jo","jo-ar","kw","kw-ar","om","om-ar","qa","qa-ar"];
+        let tiers = [];
+        if(tier == "no-tv") {
+            tiers = ["kw", "kw-ar"];
+        } else if(tier == "no-watch") {
+            tiers = ["jo", "jo-ar"];
+        } else if(tier == "english") {
+            tiers = ["bh","eg","jo","kw","om","qa"];
+        } else {
+            tiers = ["bh-ar","eg-ar","jo-ar","kw-ar","om-ar","qa-ar"];
+        }
         for(let i = 0; i < tiers.length; i++) {
             let url = `//${pageInfo.realHost}.apple.com/${tiers[i]}/${pageInfo.pathname}${pageInfo.query}`
             window.open(url);
