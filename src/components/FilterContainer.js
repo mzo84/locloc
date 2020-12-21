@@ -11,17 +11,14 @@ class FilterContainer extends React.Component {
     this.state = {
       options: [
         { type: 'geo-alt', name: 'geo-alt'},
-        { type: 'sb', name: 'sb'},
+        { type: 'sb', name: 'sourcebox'},
         { type: 'me', name: 'ae'},
         { type: 'me', name: 'ae-ar'},
         { type: 'me', name: 'sa'},
         { type: 'me', name: 'sa-ar'},
         { type: 'no-tv', name: 'no-tv'},
         { type: 'no-watch', name: 'no-watch'},
-        { type: 'english', name: 'english'},
-        { type: 'arabic', name: 'arabic'},
-        { type: 'us', name: 'us'},
-        { type: 'pool', name: 'rand'},
+        { type: 'us', name: 'us'}
       ],
       geo: page.getGeo(),
       versions: page.getSources(),

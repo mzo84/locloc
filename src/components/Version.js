@@ -1,6 +1,7 @@
 import React from 'react';
 import './Version.css';
 import HostToggle from './HostToggle';
+import Error from '../components/Error';
 
 function Version(props) {
 
@@ -32,8 +33,7 @@ function Version(props) {
 
     return (
         <div className="VersionContainer">
-            {/* <HostToggle />
-            {toggleFormButton} */}
+            <Error />
             <div className="Versions">
                 {versions}
             </div>
