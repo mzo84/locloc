@@ -22,10 +22,10 @@
     margin: 0 1px;
     padding: .3rem;
     background-color: var(--itemColour);
-    border: 1px dotted black;
     cursor: pointer;
     flex: 1 1 auto;
     text-align: center;
+    border: 1px dotted lightsteelblue;
 }
 
 .container li a {

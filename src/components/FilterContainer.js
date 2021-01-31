@@ -10,26 +10,25 @@ class FilterContainer extends React.Component {
     const page = new Page();
     this.state = {
       options: [
-        { type: 'geo-alt', name: 'geo-alt'},
-        { type: 'sb', name: 'sourcebox'},
-        { type: 'me', name: 'ae'},
-        { type: 'me', name: 'ae-ar'},
-        { type: 'me', name: 'sa'},
-        { type: 'me', name: 'sa-ar'},
-        { type: 'no-tv', name: 'no-tv'},
-        { type: 'no-watch', name: 'no-watch'},
-        { type: 'us', name: 'us'}
+        { type: 'geo-alt', name: 'geo-alt' },
+        { type: 'sb', name: 'sourcebox' },
+        { type: 'me', name: 'ae' },
+        { type: 'me', name: 'ae-ar' },
+        { type: 'me', name: 'sa' },
+        { type: 'me', name: 'sa-ar' },
+        { type: 't3', name: 't3' },
+        { type: 'us', name: 'us' }
       ],
       geo: page.getGeo(),
       versions: page.getSources(),
-      visible: true, 
+      visible: true,
     };
 
     this.toggleForm = this.toggleForm.bind(this);
 
   }
 
-  toggleForm = function(e) {
+  toggleForm = function (e) {
     this.setState((prevState) => {
       return {
         visible: !prevState.visible

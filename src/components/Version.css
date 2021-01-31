@@ -14,7 +14,6 @@
 .Version {
     display: inline-block;
     background-color: lightcyan ;
-    border: 1px dotted #8e8e8e;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -22,11 +21,9 @@
     padding: 5px 10px;
     transition: background .2s ease-in;
     margin: 0 1px;
+    border: 1px dotted lightsteelblue;
 }
 
-.Version:hover {
-    border-style:  solid;
-}
 
 .Versions {
     display: flex;
@@ -37,10 +34,6 @@
 .Version--mideast {
     background-color: lightpink;
 }
-
-/* .Version--global {
-    background-color: white;
-} */
 
 
 .Version:hover {
@@ -56,13 +49,11 @@
 .toggleForm {
     cursor: pointer;
     font-size: 13px;
-    border: 1px dotted black;
     padding: 5px;
     background-color: white;
     transition: all .2s ease-in;
 }
 
 .toggleForm:hover {
-    border: 1px solid black;
     background-color: #fefefe;
 }

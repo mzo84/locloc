@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "./Error.module.css";
 
 const Error = () => {
 
-    const apacheError = document.documentElement.textContent.includes("an error occurred");
-    
-    if(apacheError) {
+    const [error, setError] = useState(false);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        window.alert(`There are SSI errors on this page.\n\nSearch for: "[an error occurred while processing this directive]"`)
+    }
+
+    useEffect(() => {
+        setError(document.documentElement.textContent.includes("an error occurred"));
+    }, [error])
+
+
+    if (error) {
         return (
-            <div className={styles.apacheError}>
-                Error
+            <div className={styles.apacheError} onClick={(e) => handleClick(e)}>
+                error
             </div>
         )
     } else {
-        return <div data-no-error/>;
+        return null;
     }
-    
+
 }
 
 export default Error;

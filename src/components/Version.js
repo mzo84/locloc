@@ -1,6 +1,5 @@
 import React from 'react';
 import './Version.css';
-import HostToggle from './HostToggle';
 import Error from '../components/Error';
 
 function Version(props) {
