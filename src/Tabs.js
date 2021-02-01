@@ -9,35 +9,35 @@ class Tabs {
             'all': ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
             'english': ['ae', 'sa', 'bh', 'eg', 'jo', 'kw', 'om', 'qa'],
             'arabic': ['ae-ar', 'sa-ar', 'bh-ar', 'eg-ar', 'jo-ar', 'kw-ar', 'om-ar', 'qa-ar'],
-            'ae' : ['ae'],
-            'ae-ar' : ['ae-ar'],
-            "alac" : [ "br", "cl", "co", "la", "lae", "mx"],
-            "anz" : ["au", "nz"],
+            'ae': ['ae'],
+            'ae-ar': ['ae-ar'],
+            "alac": ["br", "cl", "co", "la", "lae", "mx"],
+            "anz": ["au", "nz"],
             "canada": ["ca"],
-            "eu" : ["fr", "uk", "it", "es", "de", "nl"],
-            "gc" : ["cn", "hk", "mo", "tw"],
-            "india" : ["in"],
-            "japan" : ["jp"],
-            "korea" : ["kr"],
-            "me" : ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
-            "russia" : ["ru"],
-            "sea" : ["sg", "vn", "th", "my"],
+            "eu": ["fr", "uk", "it", "es", "de", "nl"],
+            "gc": ["cn", "hk", "mo", "tw"],
+            "india": ["in"],
+            "japan": ["jp"],
+            "korea": ["kr"],
+            "me": ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
+            "russia": ["ru"],
+            "sea": ["sg", "vn", "th", "my"],
             "turkey": ["tr"],
             "us": ["us"],
             'other-geos': ['ru', 'sg', 'tr', 'in'],
         };
         this.regions = {
-            "alac" : [ "br", "cl", "co", "la", "lae", "mx"],
-            "anz" : ["au", "nz"],
+            "alac": ["br", "cl", "co", "la", "lae", "mx"],
+            "anz": ["au", "nz"],
             "canada": ["ca"],
-            "eu" : ["fr", "uk", "it", "es", "de", "nl"],
-            "gc" : ["cn", "hk", "mo", "tw"],
-            "india" : ["in"],
-            "japan" : ["jp"],
-            "korea" : ["kr"],
-            "me" : ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
-            "russia" : ["ru"],
-            "sea" : ["sg", "vn", "th", "my"],
+            "eu": ["fr", "uk", "it", "es", "de", "nl"],
+            "gc": ["cn", "hk", "mo", "tw"],
+            "india": ["in"],
+            "japan": ["jp"],
+            "korea": ["kr"],
+            "me": ['ae', 'ae-ar', 'sa', 'sa-ar', 'bh', 'bh-ar', 'eg', 'eg-ar', 'jo', 'jo-ar', 'kw', 'kw-ar', 'om', 'om-ar', 'qa', 'qa-ar'],
+            "russia": ["ru"],
+            "sea": ["sg", "vn", "th", "my"],
             "turkey": ["tr"],
             "us": ["us"],
         }
@@ -80,7 +80,7 @@ class Tabs {
             if (environments[i] === "local") {
                 host = "http://" + host + "-local.apple.com/";
             } else if (environments[i] === "stage") {
-                host = "https://www-stage-view.apple.com/";
+                host = "https://www-stage-view.isww.apple.com/";
             } else if (environments[i] === "live") {
                 host = "https://www.apple.com/";
             } else {
@@ -122,12 +122,12 @@ class Tabs {
         }
     }
 
-    getRegionFromGeo = function(geo) {
+    getRegionFromGeo = function (geo) {
         var regions = this.regions;
-        for(var i in regions) {
-            if(typeof regions[i] !== "undefined") {
-                for(var j = 0; j < regions[i].length; j++) {
-                    if(regions[i][j] === geo) {
+        for (var i in regions) {
+            if (typeof regions[i] !== "undefined") {
+                for (var j = 0; j < regions[i].length; j++) {
+                    if (regions[i][j] === geo) {
                         return i;
                     }
                 }
@@ -136,17 +136,17 @@ class Tabs {
 
     }
 
-    sourcebox = function() {
+    sourcebox = function () {
         // use geo to determine sourcebox folder
         var sourceboxUrl = "https://sourcebox.apple.com/repos/applecom/";
         var geo = this.page.getGeo();
         var sourceboxRegion = this.getRegionFromGeo(geo);
         var host = this.getHost();
-        host = host.replace("-local","");
+        host = host.replace("-local", "");
         var isTrunk = host.match(this.hostTyperegex);
         isTrunk = (isTrunk === null) ? false : true;
 
-        if(isTrunk) {
+        if (isTrunk) {
             sourceboxUrl += sourceboxRegion + "/trunk/" + geo + "/";
         } else {
             sourceboxUrl += sourceboxRegion + "/branches/" + host + "/" + geo + "/";
