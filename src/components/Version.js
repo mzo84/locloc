@@ -1,6 +1,7 @@
 import React from 'react';
 import './Version.css';
 import Error from '../components/Error';
+import Gremlins from '../components/Gremlins';
 
 function Version(props) {
 
@@ -8,11 +9,11 @@ function Version(props) {
 
     function getVersionStrings(versions) {
         const versionStrings = [];
-        for(var i = 0; i < versions.length; i++) {
-            versionStrings.push(versions[i][1].replace('/',''));
+        for (var i = 0; i < versions.length; i++) {
+            versionStrings.push(versions[i][1].replace('/', ''));
         }
 
-        return versionStrings.toString().replace(/(,|\/built)/gi," ");
+        return versionStrings.toString().replace(/(,|\/built)/gi, " ");
     }
 
     function handleClick(e) {
@@ -22,16 +23,15 @@ function Version(props) {
 
     const versions = props.versions.map((version, index) =>
         <span
-        className={version[1].search("mideast") !== -1 ? "Version Version--mideast" : "Version Version--global"} 
-        key={index}
-        title={version[1].replace(/(,|\/built)/gi,"")}
-        onClick={handleClick}>{version[0]}</span>
+            className={version[1].search("mideast") !== -1 ? "Version Version--mideast" : "Version Version--global"}
+            key={index}
+            title={version[1].replace(/(,|\/built)/gi, "")}
+            onClick={handleClick}>{version[0]}</span>
     );
-
-    const toggleFormButton = <span className="toggleForm" onClick={props.toggleForm} role="button" aria-label="opens geo tab opener"><span role="button">Geos</span></span>;
 
     return (
         <div className="VersionContainer">
+            <Gremlins />
             <Error />
             <div className="Versions">
                 {versions}
