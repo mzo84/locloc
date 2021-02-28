@@ -19,7 +19,7 @@ const DoubleEcho = () => {
     if (double !== null) {
         return (
             <div className={styles.double} onClick={(e) => handleClick(e)}>
-                doubles
+                double
             </div>
         )
     } else {

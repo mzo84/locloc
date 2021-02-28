@@ -15,7 +15,7 @@ const Gremlins = () => {
     if (gremlin) {
         return (
             <div className={styles.gremlins} onClick={(e) => handleClick(e)}>
-                {gremlin && "gremlins"}
+                {gremlin && "gremlin"}
             </div>
         )
     } else {
