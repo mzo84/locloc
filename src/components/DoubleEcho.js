@@ -8,7 +8,6 @@ const DoubleEcho = () => {
 
     useEffect(() => {
         setDouble(document.documentElement.textContent.match(doubleEchoRegex));
-        console.log(double);
     }, [double]);
 
     const handleClick = (e) => {
