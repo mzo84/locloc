@@ -4,7 +4,7 @@ import styles from "./Gremlins.module.css";
 const Gremlins = () => {
     const [gremlin, setGremlin] = useState(false);
     useEffect(() => {
-        setGremlin(document.documentElement.textContent.includes("<<") || document.documentElement.textContent.includes(">>") || document.documentElement.textContent.includes("<") || document.documentElement.textContent.includes(">") || document.documentElement.textContent.includes(".merge-"))
+        setGremlin(document.documentElement.textContent.includes("<<") || document.documentElement.textContent.includes(">>") || document.documentElement.textContent.includes(".merge-"))
     }, [gremlin])
 
     const handleClick = (e) => {
