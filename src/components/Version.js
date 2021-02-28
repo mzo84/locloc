@@ -2,6 +2,7 @@ import React from 'react';
 import './Version.css';
 import Error from '../components/Error';
 import Gremlins from '../components/Gremlins';
+import DoubleEcho from '../components/DoubleEcho';
 
 function Version(props) {
 
@@ -31,6 +32,7 @@ function Version(props) {
 
     return (
         <div className="VersionContainer">
+            <DoubleEcho />
             <Gremlins />
             <Error />
             <div className="Versions">
