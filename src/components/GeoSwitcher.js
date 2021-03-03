@@ -139,7 +139,7 @@ const GeoSwitcher = (props) => {
             tiers = ["bh-ar", "eg-ar", "jo-ar", "kw-ar", "om-ar", "qa-ar"];
         }
         for (let i = 0; i < tiers.length; i++) {
-            let url = `//${pageInfo.realHost}.apple.com/${tiers[i]}/${pageInfo.pathname}${pageInfo.query}`
+            let url = `${pageInfo.origin}/${tiers[i]}/${pageInfo.pathname}${pageInfo.query}`
             window.open(url);
         }
     }

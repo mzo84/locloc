@@ -79,7 +79,7 @@ class Tabs {
         for (var i = 0; i < environments.length; i++) {
             if (environments[i] === "local") {
                 host = "http://" + host + "-local.apple.com/";
-            } else if (environments[i] === "stage") {
+            } else if (environments[i].includes("stage")) {
                 host = "https://www-stage-view.isww.apple.com/";
             } else if (environments[i] === "live") {
                 host = "https://www.apple.com/";
